@@ -1,6 +1,6 @@
 /*!
- * \brief Simple XMC Relax Kit demo program.
- * \author M. Horauer
+ * \brief Simple USIC-UART Example
+ * \author Reibenwein Lukas
  * \version 0.1
  */
 #include "xmc4500.h"
