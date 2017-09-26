@@ -24,9 +24,7 @@ int main(void)
 	USIC0_CH0->CCR |= 0x0002;	//Configure USIC as UART/ASC
 	USIC0_CH0->FDR |= 0x8052;	//Configure USIC in fractional divider mode to generate 9600 Baudrate
 
-	USIC0_CH0->DX0CR |= 0x0001;	//Configure Input DX0B P1.4 Rx
-								//Configure Output P1.5 Tx
-
+	USIC0_CH0->DX0CR |= 0x0001;	//Configure Input DX0B P1.4 Rx / Output P1.5 Tx
 	PORT1->IOCR4 |= 0x0000;		//Configure P1.4 as Input
 	PORT1->HWSEL |= 0x0400;		//Enable HW0 for P1.5
 
@@ -34,12 +32,11 @@ int main(void)
 	USIC0_CH0->KSCFG |= 0x0003;	//Enable USIC clock
 	while(((USIC0_CH0->KSCFG) && 0x01)!=0x01); //Check if clock is enabled
 
-
-	while(1) {
+	while(1) 
+	{
 		wait(1000);
 		USIC0_CH0->TBUF[0] = 0x10101010;	//Sends one Bit of Data on the Tx line
-
-  }
+	}
 }
 
 void wait(unsigned long delay) {
